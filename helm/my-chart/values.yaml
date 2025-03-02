@@ -1,0 +1,34 @@
+# Default values for my-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+app:
+  name: my-app
+  replicas: 3
+  image:
+    repository: nginx
+    tag: latest
+
+service:
+  name: my-app-service
+  type: ClusterIP
+  port: 80
+
+ingress:
+  name: my-app-ingress
+  host: myapp.example.com
+
+hpa:
+  name: my-app-hpa
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 50
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "250m"
+    memory: "256Mi"
+
