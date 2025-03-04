@@ -11,12 +11,13 @@ app:
 
 service:
   name: my-app-service
-  type: ClusterIP
+  type: NodePort
   port: 80
+  nodePort: 30080
 
 ingress:
-  name: my-app-ingress
-  host: myapp.example.com
+  enabled: false
+
 
 hpa:
   name: my-app-hpa
